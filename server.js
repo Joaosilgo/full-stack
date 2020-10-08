@@ -1,6 +1,7 @@
 
 const express = require('express')
 const app = express()
+const path = require('path');
 //const dotenv = require('dotenv').config();
 require('dotenv').config();
 //const dotenv = require('dotenv');
@@ -10,10 +11,11 @@ const port =  process.env.PORT || 5000 ;
 
 console.log(process.env.NODE_ENV);
 
+console.log(__dirname) ;
 
+// app.use(express.static('client/build'));
 
-app.use(express.static('client/build'));
-
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 
 // Serve static assets if in production
