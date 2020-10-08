@@ -1,6 +1,6 @@
 # 🧱 Full-Stack Boilerplate 
 
-### React Js + Express Js
+## React Js + Express Js
 
 
 
@@ -14,10 +14,18 @@ git remote add origin https://github.com/Joaosilgo/full-stack.git
 git push -u origin main
 
 
-````                
+````      
+
+## 🎯 Features
+
+### Nodemailer
+Send Email from Nodemailer
 
 
-### Deploy
+
+
+
+## 🚀 Deploy
 
 
 

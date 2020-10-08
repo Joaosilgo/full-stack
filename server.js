@@ -39,6 +39,8 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 
 // Serve static assets if in production
+
+/*
 if (process.env.NODE_ENV === 'production') {
   // Set static folder
   //app.use(express.static('client/build'));
@@ -49,6 +51,7 @@ if (process.env.NODE_ENV === 'production') {
 
 
 }
+*/
 
 
 
@@ -113,21 +116,21 @@ app.get('/api/customers', (req, res) => {
 
 
 //const port = process.env.PORT || 5000 ;
-
+/* 
 if (process.env.NODE_ENV === 'production') {
   // Set static folder
   //app.use(express.static('client/build'));
   //app.use(express.static('client/build'));
 
-  app.get('*', (req, res) => {
+  
+
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/build/index.html'));
   });
 
 
-
-
 }
-
+*/
 
 
 
@@ -190,6 +193,10 @@ const sendEMail = (email, subject, text, content) => {
 
 sendEMail('test', 'test', 'test', 'test');
 
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/client/build/index.html'));
+});
 
 /*
 app.get('*', (req, res) => {
