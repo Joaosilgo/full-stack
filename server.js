@@ -18,6 +18,9 @@ console.log(__dirname) ;
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 
+
+
+
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
   // Set static folder
@@ -49,7 +52,9 @@ app.get('/api/customers', (req, res) => {
 
 
 
-
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+});
 
 app.listen(port, () => console.log(`Server running on port at http://localhost:${port}`)) 
 
