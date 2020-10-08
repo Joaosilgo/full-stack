@@ -21,6 +21,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
+app.get('/', (req, res) => {
+  res.send('Go to /api/customer!')
+})
 
 
 app.get('/api/customers', (req, res) => {
