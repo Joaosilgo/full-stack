@@ -165,7 +165,7 @@ const sendEMail = (email, subject, text, content) => {
     service: 'gmail',
     auth: {
       user: process.env.EMAIL || 'joaosilgo96@gmail.com', // TODO: your gmail account
-      pass: process.env.PASSWORD //|| 'Jo@ogomes' // TODO: your gmail password
+      pass: process.env.PASSWORD //|| // TODO: your gmail password
     }
   });
 
