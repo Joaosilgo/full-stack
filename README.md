@@ -1,8 +1,6 @@
-# 🧱 Full-Stack Boilerplate 
+# 🧱 Full-Stack Boilerplate
 
 ## React Js + Express Js
-
-
 
 ````bash
 echo "# full-stack" >> README.md
@@ -14,25 +12,17 @@ git remote add origin https://github.com/Joaosilgo/full-stack.git
 git push -u origin main
 
 
-````      
+````
 
 ## 🎯 Features
 
 ### Nodemailer
+
 Send Email from Nodemailer
-
-
-
-
 
 ## 🚀 Deploy
 
-
-
-
-
-Deploy in [Heroku](https://github.com/mars/create-react-app-buildpack.git) 
-
+Deploy in [Heroku](https://github.com/mars/create-react-app-buildpack.git)
 
 #### Buildpack
 

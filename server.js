@@ -5,8 +5,8 @@ const express = require('express');
 const app = express()
 const path = require('path');
 const fetch = require("node-fetch");
-const { json } = require('express');
-var request = require("request");
+//const { json } = require('express');
+//var request = require("request");
 //const dotenv = require('dotenv').config();´
 const nodemailer = require('nodemailer');
 const log = console.log;
@@ -26,9 +26,9 @@ const route = express.Router();
 
 const port = process.env.PORT || 5000;
 
-console.log(process.env.NODE_ENV);
+//console.log(process.env.NODE_ENV);
 
-console.log(__dirname);
+//console.log(__dirname);
 
 // app.use(express.static('client/build'));
 
@@ -58,7 +58,7 @@ if (process.env.NODE_ENV === 'production') {
 
 
 
-app.use('/api/users', userRoutes);
+//app.use('/api/users', userRoutes);
 
 
 
@@ -69,11 +69,13 @@ app.get('/', (req, res) => {
 })
 
 
+/*
 app.get('/teste', (req, res) => {
 
   console.log('Teste!')
   res.send('Teste')
 })
+*/
 
 
 
