@@ -1,7 +1,7 @@
 
 const express = require('express')
 const app = express()
-const port = 5000
+
 
 app.get('/api/customers', (req, res) => {
   const customers = [
@@ -13,6 +13,7 @@ app.get('/api/customers', (req, res) => {
   res.json(customers)
 });
 
+const port = proces.env.PORT || 5000 ;
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
