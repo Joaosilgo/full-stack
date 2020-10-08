@@ -1,3 +1,9 @@
+# 🧱 Full-Stack Boilerplate 
+
+### React Js + Express Js
+
+
+
 ````bash
 echo "# full-stack" >> README.md
 git init
@@ -9,3 +15,19 @@ git push -u origin main
 
 
 ````                
+
+
+### Deploy
+
+
+
+
+
+Deploy in [Heroku](https://github.com/mars/create-react-app-buildpack.git) 
+
+
+#### Buildpack
+
+````
+https://github.com/mars/create-react-app-buildpack.git
+````

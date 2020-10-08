@@ -10,11 +10,7 @@
     "client": "npm start --prefix client",
     "build": "cd client && npm run build ",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false  npm run client-install && npm run build ",
-   
-    
-  
     "dev": "concurrently \"npm run server\" \"npm run client\""
-    
   },
   "keywords": [
     "React",
@@ -26,9 +22,12 @@
     "concurrently": "^5.3.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "nodemailer": "^6.4.13",
     "process-env": "^1.1.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "request": "^2.88.2"
   }
 }
