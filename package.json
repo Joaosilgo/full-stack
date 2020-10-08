@@ -4,13 +4,15 @@
   "description": "Full Stack Boilerplate React js (Frontend) Express js (Backend)",
   "main": "server.js",
   "scripts": {
-    
     "client-install": "cd client && npm install",
+    "build": "cd client && npm run build ",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false  npm run client-install && npm run build ",
     "start": "node server.js",
+    
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false  npm install --prefix client && npm run build --prefix client"
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+    
   },
   "keywords": [
     "React",
@@ -20,7 +22,9 @@
   "license": "MIT",
   "dependencies": {
     "concurrently": "^5.3.0",
-    "express": "^4.17.1"
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "process-env": "^1.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
