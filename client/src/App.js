@@ -3,7 +3,8 @@ import React from 'react';
 import './App.css';
 
 //import Customers from './components/customers';
-import Album from './components/album';
+//import Album from './components/album';
+import StickyFooter from './components/comingSoon';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
     
       
      
-      <Album/>
+      <StickyFooter />
+
       </div>
     
   );

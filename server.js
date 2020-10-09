@@ -38,11 +38,15 @@ console.log(path.join(__dirname, 'client/build', 'favicon.ico'));
 
 
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+//NOT COMMETING ABOVE
+
+//app.use(express.static(path.join(__dirname, 'client/build')));
+
+
 app.use(favicon(path.join(__dirname, 'client/build', 'favicon.ico')))
 // Serve static assets if in production
 
-/*
+
 if (process.env.NODE_ENV === 'production') {
   // Set static folder
   //app.use(express.static('client/build'));
@@ -53,7 +57,7 @@ if (process.env.NODE_ENV === 'production') {
 
 
 }
-*/
+
 
 
 
@@ -176,7 +180,7 @@ const sendEMail = (email, subject, text, content) => {
     from: 'joaosilgo96@gmail.com', // TODO: email sender
     to: 'joaosilgo96@gmail.com', // TODO: email receiver
     subject: ' 🚀 full-stack-app Live',
-    text: 'Wooohooo it works Live!!',
+    text: 'Wooohooo it works Live!!' + Date() ,
     html: ''
   };
 
@@ -198,15 +202,34 @@ const sendEMail = (email, subject, text, content) => {
 sendEMail('test', 'test', 'test', 'test');
 
 
+/*
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
+*/
 
 /*
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
 */
+
+
+
+
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  //app.use(express.static('client/build'));
+  //app.use(express.static('client/build'));
+
+  
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/build/index.html'));
+  });
+
+
+}
 
 app.listen(port, () => console.log(`Server running on port at http://localhost:${port}`))
 
