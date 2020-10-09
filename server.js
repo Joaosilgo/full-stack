@@ -175,8 +175,8 @@ const sendEMail = (email, subject, text, content) => {
   let mailOptions = {
     from: 'joaosilgo96@gmail.com', // TODO: email sender
     to: 'joaosilgo96@gmail.com', // TODO: email receiver
-    subject: ' 🚀 full-stack-app',
-    text: 'Wooohooo it works!!',
+    subject: ' 🚀 full-stack-app Live',
+    text: 'Wooohooo it works Live!!',
     html: ''
   };
 
