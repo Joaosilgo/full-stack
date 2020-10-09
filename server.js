@@ -16,7 +16,25 @@ const route = express.Router();
 //const dotenv = require('dotenv');
 //dotenv.config();
 
-const favicon = require('serve-favicon')
+const favicon = require('serve-favicon');
+
+const os = require('os');
+const { options } = require('./routes/api/users');
+
+console.log("Platform: " + os.platform());
+console.log("Architecture: " + os.arch());
+console.log("CPU: " + os.cpus().length );
+console.log(os.cpus());
+console.log("UserName: " );
+console.log(os.userInfo());
+console.log("Free Mem:  " + os.freemem() +  " (bytes)");
+console.log("HostName:  " + os.hostname());
+console.log("Process Version: ");
+console.log(process.versions);
+
+
+
+
 
 
 
