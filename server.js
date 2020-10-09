@@ -5,6 +5,7 @@ const express = require('express');
 const app = express()
 const path = require('path');
 const fetch = require("node-fetch");
+
 //const { json } = require('express');
 //var request = require("request");
 //const dotenv = require('dotenv').config();´
@@ -14,6 +15,8 @@ require('dotenv').config();
 const route = express.Router();
 //const dotenv = require('dotenv');
 //dotenv.config();
+
+const favicon = require('serve-favicon')
 
 
 
@@ -28,7 +31,7 @@ const port = process.env.PORT || 5000;
 
 //console.log(process.env.NODE_ENV);
 
-//console.log(__dirname);
+console.log(path.join(__dirname, 'client/build', 'favicon.ico'));
 
 // app.use(express.static('client/build'));
 
@@ -36,8 +39,7 @@ const port = process.env.PORT || 5000;
 
 
 app.use(express.static(path.join(__dirname, 'client/build')));
-
-
+app.use(favicon(path.join(__dirname, 'client/build', 'favicon.ico')))
 // Serve static assets if in production
 
 /*

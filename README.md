@@ -22,10 +22,10 @@ Send Email from Nodemailer
 
 ## 🚀 Deploy
 
-Deploy in [Heroku](https://github.com/mars/create-react-app-buildpack.git)
+Deploy in [Heroku](full-stack-boilerplate.herokuapp.com/)
 
-#### Buildpack
+### Buildpack
 
-````
+````link
 https://github.com/mars/create-react-app-buildpack.git
 ````
