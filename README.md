@@ -2,6 +2,14 @@
 
 ## React Js + Express Js
 
+### Use
+
+````bash
+npm run dev
+
+Go To /api/customers in server side http://localhost:5000/api/customers
+````
+
 ````bash
 echo "# full-stack" >> README.md
 git init

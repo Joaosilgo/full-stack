@@ -5,6 +5,7 @@ const express = require('express');
 const app = express()
 const path = require('path');
 const fetch = require("node-fetch");
+const { MongoClient } = require("mongodb")
 
 //const { json } = require('express');
 //var request = require("request");
@@ -23,11 +24,11 @@ const { options } = require('./routes/api/users');
 
 console.log("Platform: " + os.platform());
 console.log("Architecture: " + os.arch());
-console.log("CPU: " + os.cpus().length );
+console.log("CPU: " + os.cpus().length);
 console.log(os.cpus());
-console.log("UserName: " );
+console.log("UserName: ");
 console.log(os.userInfo());
-console.log("Free Mem:  " + os.freemem() +  " (bytes)");
+console.log("Free Mem:  " + os.freemem() + " (bytes)");
 console.log("HostName:  " + os.hostname());
 console.log("Process Version: ");
 console.log(process.versions);
@@ -198,7 +199,7 @@ const sendEMail = (email, subject, text, content) => {
     from: 'joaosilgo96@gmail.com', // TODO: email sender
     to: 'joaosilgo96@gmail.com', // TODO: email receiver
     subject: ' 🚀 full-stack-app Live',
-    text: 'Wooohooo it works Live!!' + Date() ,
+    text: 'Wooohooo it works Live!!' + Date(),
     html: ''
   };
 
@@ -235,14 +236,85 @@ app.get('*', (req, res) => {
 
 
 
+
+
+
+async function main() {
+
+
+  // Connection URI
+
+  const uri = "mongodb+srv://Teste:Jo@og0mes@teste.1eijf.mongodb.net/<dbname>?retryWrites=true&w=majority";
+  const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+  /*
+  client.connect(err => {
+    const collection = client.db("test").collection("devices");
+    // perform actions on the collection object
+    client.close();
+  });
+  */
+
+  // Create a new MongoClient
+  //const client = new MongoClient(uri);
+  /*
+  async function run() {
+    try {
+      // Connect the client to the server
+      await client.connect();
+  
+      // Establish and verify connection
+      await client.db("admin").command({ ping: 1 });
+      console.log("Connected successfully to server");
+    } finally {
+      // Ensures that the client will close when you finish/error
+      await client.close();
+    }
+  }
+  run().catch(console.dir);
+  
+  */
+
+
+
+
+//  const client = new MongoClient(uri);
+
+  try {
+    // Connect to the MongoDB cluster
+    await client.connect();
+
+    // Make the appropriate DB calls
+    await listDatabases(client);
+
+  } catch (e) {
+    console.error(e);
+  } finally {
+    await client.close();
+  }
+
+
+
+}
+main().catch(console.error);
+
+
+async function listDatabases(client){
+  databasesList = await client.db().admin().listDatabases();
+
+  console.log("Databases:");
+  databasesList.databases.forEach(db => console.log(` - ${db.name}`));
+};
+
+
+
 if (process.env.NODE_ENV === 'production') {
   // Set static folder
   //app.use(express.static('client/build'));
   //app.use(express.static('client/build'));
 
-  
 
-app.get('*', (req, res) => {
+
+  app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/build/index.html'));
   });
 
