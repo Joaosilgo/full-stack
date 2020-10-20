@@ -66,7 +66,7 @@ db.initialize(dbName, collectionName, function(dbCollection) { // successCallbac
     // return updated list
   //  dbCollection.find().toArray((error, result) => {
 
-    let query = { borough: 'Brooklyn', cuisine:"American" ,name: 'Melody Lanes' }
+    let query = { borough: 'Brooklyn', cuisine:"American" , name: 'Melody Lanes' }
     dbCollection.find(query).toArray((error, result) => {
         if (error) throw error;
         response.json(result);
