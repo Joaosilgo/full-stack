@@ -51,7 +51,7 @@ db.initialize(dbName, collectionName, function(dbCollection) { // successCallbac
   // << db CRUD routes >>
 
 
-
+/*
   app.get("/items/:id", (request, response) => {
     const itemId = request.params.id;
 
@@ -61,6 +61,8 @@ db.initialize(dbName, collectionName, function(dbCollection) { // successCallbac
         response.json(result);
     });
 });
+
+*/
 
   app.get("/api/items", (request, response) => {
     // return updated list
