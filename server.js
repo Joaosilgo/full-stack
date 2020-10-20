@@ -62,7 +62,7 @@ db.initialize(dbName, collectionName, function(dbCollection) { // successCallbac
     });
 });
 
-  app.get("/items", (request, response) => {
+  app.get("/api/items", (request, response) => {
     // return updated list
   //  dbCollection.find().toArray((error, result) => {
 

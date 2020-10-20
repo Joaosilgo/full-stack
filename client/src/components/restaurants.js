@@ -14,7 +14,7 @@ class Items extends Component {
     }
 
     componentDidMount() {
-        fetch('/items')
+        fetch('/api/items')
             .then(res => res.json())
             .then(items => this.setState({ items }, () => console.log('Items fetched...', items)))
             .catch((error) => console.error(error));
