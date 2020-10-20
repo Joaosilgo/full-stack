@@ -5,7 +5,7 @@ const express = require('express');
 const app = express()
 const path = require('path');
 const fetch = require("node-fetch");
-const { MongoClient } = require("mongodb")
+const db  = require('./db')
 
 //const { json } = require('express');
 //var request = require("request");
@@ -35,12 +35,56 @@ console.log(process.versions);
 
 
 
+const dbName = "sample_restaurants";
+const collectionName = "restaurants";
+
+//'sample_restaurants'
+//"restaurants"
+db.initialize(dbName, collectionName, function(dbCollection) { // successCallback
+  // get all items
+ /* dbCollection.find().toArray(function(err, result) {
+      if (err) throw err;
+        console.log(result);
+  });
+  */
+
+  // << db CRUD routes >>
+
+
+
+  app.get("/items/:id", (request, response) => {
+    const itemId = request.params.id;
+
+    dbCollection.findOne({ restaurant_id: itemId }, (error, result) => {
+        if (error) throw error;
+        // return item
+        response.json(result);
+    });
+});
+
+  app.get("/items", (request, response) => {
+    // return updated list
+    dbCollection.find().toArray((error, result) => {
+        if (error) throw error;
+        response.json(result);
+    });
+});
 
 
 
 
 
 
+}, function(err) { // failureCallback
+  throw (err);
+});
+
+
+
+
+
+  
+ //console.log(db)
 
 
 
@@ -108,7 +152,7 @@ app.get('/api/customers', (req, res) => {
   const customers = [
     { id: 1, firstName: 'John', lastName: 'Doe' },
     { id: 2, firstName: 'João', lastName: 'Gomes' },
-    { id: 3, firstName: 'João', lastName: 'Silva' },
+    { id: 3, firstName: 'João_', lastName: 'Silva' },
   ];
 
   res.json(customers)
@@ -239,71 +283,7 @@ app.get('*', (req, res) => {
 
 
 
-async function main() {
 
-
-  // Connection URI
-
-  const uri = "mongodb+srv://Teste:Jo@og0mes@teste.1eijf.mongodb.net/<dbname>?retryWrites=true&w=majority";
-  const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-  /*
-  client.connect(err => {
-    const collection = client.db("test").collection("devices");
-    // perform actions on the collection object
-    client.close();
-  });
-  */
-
-  // Create a new MongoClient
-  //const client = new MongoClient(uri);
-  /*
-  async function run() {
-    try {
-      // Connect the client to the server
-      await client.connect();
-  
-      // Establish and verify connection
-      await client.db("admin").command({ ping: 1 });
-      console.log("Connected successfully to server");
-    } finally {
-      // Ensures that the client will close when you finish/error
-      await client.close();
-    }
-  }
-  run().catch(console.dir);
-  
-  */
-
-
-
-
-//  const client = new MongoClient(uri);
-
-  try {
-    // Connect to the MongoDB cluster
-    await client.connect();
-
-    // Make the appropriate DB calls
-    await listDatabases(client);
-
-  } catch (e) {
-    console.error(e);
-  } finally {
-    await client.close();
-  }
-
-
-
-}
-main().catch(console.error);
-
-
-async function listDatabases(client){
-  databasesList = await client.db().admin().listDatabases();
-
-  console.log("Databases:");
-  databasesList.databases.forEach(db => console.log(` - ${db.name}`));
-};
 
 
 
@@ -321,7 +301,12 @@ if (process.env.NODE_ENV === 'production') {
 
 }
 
+//You will then want to call connect() before your application starts and the server starts listening. Eg:
+
+
 app.listen(port, () => console.log(`Server running on port at http://localhost:${port}`))
+
+
 
 
 

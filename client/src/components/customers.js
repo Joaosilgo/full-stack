@@ -34,9 +34,9 @@ class Customers extends Component {
         <div>
           <Grid container spacing={2} justify="center">
 
-            {this.state.customers.map(customer =>
-              <Grid item>
-                <Button key={customer.id} variant="contained"> {customer.firstName} {customer.lastName}</Button>
+            {this.state.customers.map((customer, index) =>
+              <Grid key={customer.id}  >
+                <Button variant="contained"> {customer.firstName} {customer.lastName}</Button>
               </Grid>
             )}
           </Grid>
