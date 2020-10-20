@@ -16,8 +16,8 @@ class Items extends Component {
     componentDidMount() {
         fetch('/api/items')
             .then(res => res.json())
-            .then(items => this.setState({ items }, () => console.log('Items fetched...', items)))
-            .catch((error) => console.error(error));
+            .then(items => this.setState({ items }, () => console.log('Items fetched...', items)));
+            
     }
 
 
@@ -35,7 +35,7 @@ class Items extends Component {
                 <div>
                     <Grid container spacing={2} justify="center">
 
-                        {this.state.items.map(items =>
+                        {this.state.items && this.state.items.map((items, index) =>
                             <Grid key={items.restaurant_id} >
 
 
