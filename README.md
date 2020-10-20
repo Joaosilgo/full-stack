@@ -147,3 +147,5 @@ Deploy in [Heroku](full-stack-boilerplate.herokuapp.com/)
 ````link
 https://github.com/mars/create-react-app-buildpack.git
 ````
+
+### 📜 Changelog
