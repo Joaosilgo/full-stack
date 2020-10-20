@@ -14,7 +14,7 @@ class Items extends Component {
   }
 
   componentDidMount() {
-    fetch('/items/')
+    fetch('/items')
       .then(res => res.json())
       .then(items => this.setState({ items }, () => console.log('Items fetched...', items)));
   }
@@ -34,7 +34,7 @@ class Items extends Component {
         <div>
           <Grid container spacing={2} justify="center">
 
-            {this.state.items.map((items, index) => 
+            {this.state.items.map(items => 
             <Grid key={items.restaurant_id}  > 
            
               
