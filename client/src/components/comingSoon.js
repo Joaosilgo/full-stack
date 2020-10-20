@@ -6,6 +6,7 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Customers from './customers';
 import Items from './restaurants';
+import Weather from './weather';
 
 function Copyright() {
   return (
@@ -52,7 +53,11 @@ export default function StickyFooter() {
           {'Pin a footer to the bottom of the viewport.'}
           {'The footer will move as the main element of the page grows.'}
         </Typography>
+        <Items />
         <Typography variant="body1">Sticky footer placeholder.</Typography>
+        
+      <Weather />
+     
       </Container>
       <footer className={classes.footer}>
         <Container maxWidth="sm">
@@ -61,7 +66,7 @@ export default function StickyFooter() {
           <Customers />
         </Container>
       </footer>
-      <Items />
+     
     </div>
   );
 }

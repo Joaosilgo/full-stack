@@ -1,12 +1,11 @@
 
-
 var userRoutes = require('./routes/api/users');
 const express = require('express');
 const app = express()
 const path = require('path');
 const fetch = require("node-fetch");
 const db  = require('./db')
-
+const userModel = require('./models/user');
 //const { json } = require('express');
 //var request = require("request");
 //const dotenv = require('dotenv').config();´
@@ -21,6 +20,11 @@ const favicon = require('serve-favicon');
 
 const os = require('os');
 const { options } = require('./routes/api/users');
+
+const body_parser = require("body-parser");
+
+// parse JSON (application/json content-type)
+app.use(body_parser.json());
 /*
 console.log("Platform: " + os.platform());
 console.log("Architecture: " + os.arch());
@@ -33,25 +37,23 @@ console.log("HostName:  " + os.hostname());
 console.log("Process Version: ");
 console.log(process.versions);
 */
-process.env.NODE_ENV = 'production';
+//process.env.NODE_ENV = 'production';
 
 const dbName = "sample_restaurants";
 const collectionName = "restaurants";
 
 //'sample_restaurants'
 //"restaurants"
+
 db.initialize(dbName, collectionName, function(dbCollection) { // successCallback
   // get all items
- /* dbCollection.find().toArray(function(err, result) {
-      if (err) throw err;
-        console.log(result);
-  });
-  */
+
 
   // << db CRUD routes >>
 
 
-/*
+
+
   app.get("/items/:id", (request, response) => {
     const itemId = request.params.id;
 
@@ -62,7 +64,7 @@ db.initialize(dbName, collectionName, function(dbCollection) { // successCallbac
     });
 });
 
-*/
+
 
   app.get('/api/items', (request, response) => {
     // return updated list
@@ -73,6 +75,21 @@ db.initialize(dbName, collectionName, function(dbCollection) { // successCallbac
         if (error) throw  console.log(error);
         response.json(result);
     })
+});
+
+
+
+app.post("/items", (request, response) => {
+  const item = request.body;
+ 
+  dbCollection.insertOne(item, (error, result) => { // callback of insertOne
+      if (error) throw error;
+      // return updated list
+      dbCollection.find().toArray((_error, _result) => { // callback of find
+          if (_error) throw _error;
+          response.json(_result);
+      });
+  });
 });
 
 
@@ -88,8 +105,34 @@ db.initialize(dbName, collectionName, function(dbCollection) { // successCallbac
 
 
 
-  
+
+
+
+app.get('/users', async (req, res) => {
+  const users = await userModel.find({});
+
+  try {
+    res.send(users);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
  //console.log(db)
+//console.log( db.('sample_restaurants'))
+
+ /*
+ app.get('/api/items', (request, response) => {
+  // return updated list
+//  dbCollection.find().toArray((error, result) => {
+
+  let query = { borough: 'Brooklyn', cuisine: 'American' , name: 'Melody Lanes' }
+  db..find(query).toArray((error, result) => {
+      if (error) throw  console.log(error);
+      response.json(result);
+  })
+});
+*/
+
 
 
 

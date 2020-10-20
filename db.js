@@ -3,8 +3,48 @@
 const MongoClient = require("mongodb").MongoClient;
 require('dotenv').config();
 
+const mongoose = require('mongoose');
+
 const uri = `mongodb+srv://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@teste.1eijf.mongodb.net/<dbname>?retryWrites=true&w=majority`;
+
+
+
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+
+ mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true
+}
+
+
+
+
+)
+
+
+
+const db = mongoose.connection.getClient();
+
+
+module.exports = db;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 

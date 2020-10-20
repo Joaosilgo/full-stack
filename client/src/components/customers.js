@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './customers.css';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 
@@ -9,15 +10,46 @@ class Customers extends Component {
   constructor() {
     super();
     this.state = {
+      error: null,
+      isLoaded: false,
+      isLoading: true,
       customers: []
     };
   }
 
+
+  /*
   componentDidMount() {
     fetch('/api/customers')
       .then(res => res.json())
       .then(customers => this.setState({ customers }, () => console.log('Customers fetched...', customers)));
   }
+  */
+
+  componentDidMount() {
+    fetch('/api/customers')
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            isLoading: false,
+            items: result.items
+          }, console.log('Customers fetched...', result));
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            isLoading: false,
+            error
+          });
+        }
+      )
+  }
+
 
 
 
@@ -31,6 +63,7 @@ class Customers extends Component {
 
 
         <h2>Customers</h2>
+        { this.state.isLoading ? <CircularProgress disableShrink size={24} thickness={4} color="inherit" /> : (
         <div>
           <Grid container spacing={2} justify="center">
 
@@ -41,6 +74,7 @@ class Customers extends Component {
             )}
           </Grid>
         </div>
+        )}
       </div>
     );
   }

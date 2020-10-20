@@ -26,7 +26,7 @@ git push -u origin main
 
 ````
 
-## ℹ️ What is the MERN Stack
+## :information_source: What is the MERN Stack
 
 MERN stands for MongoDB, Express, React, Node, after the four key technologies that make up the stack.
 
