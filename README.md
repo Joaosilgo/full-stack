@@ -1,6 +1,8 @@
 # 🧱 Full-Stack Boilerplate
 
-## React Js + Express Js
+## Mongodb + Express Js + React Js + Node js
+
+🎮 Demo: [full-stack-boilerplate.herokuapp.com/](full-stack-boilerplate.herokuapp.com/)
 
 ### Use
 
@@ -24,9 +26,31 @@ git push -u origin main
 
 ````
 
+<<<<<<< HEAD
 ## Database
 
 The Database used is Mongodb
+=======
+
+## ℹ️ What is the MERN Stack?
+MERN stands for MongoDB, Express, React, Node, after the four key technologies that make up the stack.
+
+MongoDB - document database
+Express(.js) - Node.js web framework
+React(.js) - a client-side JavaScript framework
+Node(.js) - the premier JavaScript web server
+
+
+MERN is one of several variations of the MEAN stack (MongoDB Express Angular Node), where the traditional Angular.js frontend framework is replaced with React.js. Other variants include MEVN (MongoDB, Express, Vue, Node), and really any frontend JavaScript framework can work.
+
+Express and Node make up the middle (application) tier. Express.js is a server-side web framework, and Node.js the popular and powerful JavaScript server platform. Regardless of which variant you choose, ME(RVA)N is the ideal approach to working with JavaScript and JSON, all the way through.
+
+
+
+How does the MERN stack work?
+The MERN architecture allows you to easily construct a 3-tier architecture (frontend, backend, database) entirely using JavaScript and JSON.
+
+>>>>>>> 34d7047bade07d8d01bb773afe84d673faa3040d
 
 ## 🎯 Features
 
@@ -120,6 +144,8 @@ Get OS System Specs
  }
 ````
 
+### 📍 Environment Variables 
+
 ## 🚀 Deploy
 
 Deploy in [Heroku](full-stack-boilerplate.herokuapp.com/)
@@ -129,3 +155,5 @@ Deploy in [Heroku](full-stack-boilerplate.herokuapp.com/)
 ````link
 https://github.com/mars/create-react-app-buildpack.git
 ````
+
+### 📜 Changelog
