@@ -14,7 +14,9 @@
   },
   "keywords": [
     "React",
-    "Express"
+    "Express",
+    "Mongodb",
+    "Nodejs"
   ],
   "author": "Joao Gomes",
   "license": "MIT",

@@ -136,6 +136,13 @@ Get OS System Specs
 
 ### 📍 Environment Variables
 
+### ⚠ Todo
+
+- [x] Fetch API
+- [x] Install Notification (Nodemailer)
+- [x] Install and Use Mongodb Atlas
+- [ ] Install and use Auth System
+
 ## 🚀 Deploy
 
 Deploy in [Heroku](full-stack-boilerplate.herokuapp.com/)
