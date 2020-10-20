@@ -8,6 +8,8 @@
 npm run dev
 
 Go To /api/customers in server side http://localhost:5000/api/customers
+
+npm run build  to Build the client
 ````
 
 ````bash
