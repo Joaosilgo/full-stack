@@ -21,7 +21,7 @@ const favicon = require('serve-favicon');
 
 const os = require('os');
 const { options } = require('./routes/api/users');
-
+/*
 console.log("Platform: " + os.platform());
 console.log("Architecture: " + os.arch());
 console.log("CPU: " + os.cpus().length);
@@ -32,8 +32,8 @@ console.log("Free Mem:  " + os.freemem() + " (bytes)");
 console.log("HostName:  " + os.hostname());
 console.log("Process Version: ");
 console.log(process.versions);
-
-
+*/
+process.env.NODE_ENV = 'production';
 
 const dbName = "sample_restaurants";
 const collectionName = "restaurants";
@@ -64,7 +64,7 @@ db.initialize(dbName, collectionName, function(dbCollection) { // successCallbac
 
 */
 
-  app.get("/api/items", (request, response) => {
+  app.get('/api/items', (request, response) => {
     // return updated list
   //  dbCollection.find().toArray((error, result) => {
 
@@ -120,7 +120,7 @@ if (process.env.NODE_ENV === 'production') {
   //app.use(express.static('client/build'));
   //app.use(express.static('client/build'));
 
-  app.use(express.static(path.join(__dirname, 'client/build')));
+ // app.use(express.static(path.join(__dirname, 'client/build')));
 
 
 
@@ -298,11 +298,12 @@ if (process.env.NODE_ENV === 'production') {
   //app.use(express.static('client/build'));
 
 
-
+/*
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/build/index.html'));
   });
 
+  */
 
 }
 
