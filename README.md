@@ -136,6 +136,16 @@ Get OS System Specs
 
 ### 📍 Environment Variables
 
+```` .env
+PORT = 5000
+NODE_ENV = development
+EMAIL = <email_for_NodeMailer>
+PASSWORD = <email_password_for_NodeMailer>
+DATABASE_USER = <atlas_db_user>
+DATABASE_PASSWORD = <atlas_db_password>
+
+````
+
 ### ⚠ Todo
 
 - [x] Fetch API
