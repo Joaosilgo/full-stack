@@ -66,7 +66,7 @@ await client.connect(err => {
  //   module.exports = db
     // Connection URI
   
-  //  const uri = "mongodb+srv://Teste:Jo@og0mes@teste.1eijf.mongodb.net/<dbname>?retryWrites=true&w=majority";
+  //  const uri = `mongodb+srv://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@teste.1eijf.mongodb.net/<dbname>?retryWrites=true&w=majority`;
    // const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     /*
     client.connect(err => {
