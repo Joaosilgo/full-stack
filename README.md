@@ -24,6 +24,10 @@ git push -u origin main
 
 ````
 
+## Database
+
+The Database used is Mongodb
+
 ## 🎯 Features
 
 ### Nodemailer
